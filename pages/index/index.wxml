@@ -1,33 +1,45 @@
 <!--index.wxml-->
-<view class="container">
-  <!--开始游戏页面布局-->
-  <view class="start" style="display:{{startDisplay}}">
-    <button bindtap="begin">开始游戏</button>
-  </view>
-  <!--主游戏操作界面布局-->
-  <view class="main" style="display:{{mainDisplay}}; background-position-y: {{backgroundPositionY}}px;">
-    <!--分数显示view -->
-    <view class="score">
-      <label>分数:</label>
-      <label class="label">{{scores}}</label>
+<view class="container root">
+<block wx:for="{{datas}}" wx:for-item="data"> 
+  <!--单个Item-->
+  <view class="book-item-root">
+    <!--图书封面和背景显示-->
+    <view class="book-img-root">
+        <!--背景-->
+        <image class="book-img-bg" src="{{data.bg}}"></image>
+        <!--封面图片-->
+        <image class="book-img" src="{{data.large_cover}}" bindtap="clickShowList" id="{{index+1}}"></image>
     </view>
-    <!--game over 显示出来的页面-->
-    <view class="end"  style="display:{{endDisplay}}">
-      <view class="plantext">飞机大战分数</view>
-      <view class="planscores">{{scores}}</view>
-      <view><button bindtap="jisu">继续</button></view>
+    <!--图书标题-->
+    <view class="book-title">{{data.title}}</view>
+    <!--图书内容-->
+    <view class="book-content">{{data.rec_description}}</view>
+    <!--图书标签-->
+    <view class="book-tags">{{data.tags}}</view>
+  <!--底部三个图标-->
+  <view class="book-info-root">
+    <!--显示观看过的人数-->
+    <view class="book-info">
+        <!--图标-->
+        <image class="book-info-icon" src="../assets/img/tab3.png"></image>
+        <!--文本-->
+        <view class="book-info-content">{{data.hits}}</view>
     </view>
-    <!--创建我方飞机-->
-    <image src="{{myAirPath}}" style="width:{{myAirWidth}}px;height:{{myAirHeight}}px;position:absolute;top:{{top}}px;left:{{left}}px;" bindtouchmove="mytouchmove"></image>
-
-    <!--创建我方战机发射子弹-->
-    <block wx:for="{{bullets}}" wx:for-item="data">
-      <image style="width:{{data.bulletsizeX}}px;height:{{data.bulletsizeY}}px;position:absolute;z-index:2;top:{{data.bulletY}}px;left:{{data.bulletX}}px" src="{{data.imagesrc}}"></image>
-    </block>
-
-    <!--创建敌方战机-->
-    <block wx:for="{{enemys}}" wx:for-item="data">
-      <image style="width:{{data.plansizeX}}px;height:{{data.plansizeY}}px;position:absolute;z-index:2;top:{{data.planY}}px;left:{{data.planX}}px" src="{{data.planimagesrc}}"></image>
-    </block>
+     <!--显示收藏的人数-->
+    <view class="book-info">
+        <!--图标-->
+        <image class="book-info-icon" src="../assets/img/tab2.png"></image>
+        <!--文本-->
+        <view class="book-info-content">{{data.fav_count}}</view>
+    </view>
+     <!--显示参与评论的人数-->
+    <view class="book-info">
+        <!--图标-->
+        <image class="book-info-icon" src="../assets/img/tab1.png"></image>
+        <!--文本-->
+        <view class="book-info-content">{{data.comment_count}}</view>
+    </view>
   </view>
+  </view>
+  </block>
 </view>

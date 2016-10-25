@@ -1,266 +1,95 @@
-var that;
-var set;
-var mark = 0;
-var mark1 = 0;
-Page( {
-  data: {
+Page({
+  data:{
     // text:"这是一个页面"
-    startDisplay: "block",
-    mainDisplay: "none",
-    endDisplay: "none",
-    myAirPath: "../assets/image/myAir.gif",
-    backgroundPositionY: 0,
-    top: 450,
-    left: 160,
-    myAirWidth: 60,
-    myAirHeight: 60,
-    bullets: [],
-    enemys: [],
-    scores: 0
+    datas:[{
+                "rec_description":"她曾爱他上瘾，如愿嫁进豪门的她却心如死灰，逃离去了美国。三年后再见面时，他却提出了屈辱的卖身要求，为了妈妈的手术，她忍了！ 再次相见，她华丽蜕变成顶尖汽车设计师，令他震惊。踏进阮氏集团的她，却是开启复仇之路。父亲之死，一个个被人精心设计的阴谋，让他们彼此伤害，越走越远。男人的面孔扭曲，手握得拳头咯咯响。 当真相渐渐露出水面，幡然醒悟的他这才发现原来…… “谁也无法抢走我的女人和孩子。”",
+                "title":"总裁犯贱：限时离婚！",
+                "large_cover":"http://if.lsread.com/Upload/Novel/Image/20160919/20160919130552173861.jpg",
+                "tags":"霸道 总裁",
+                "bg":"../assets/img/book-bg1.jpg",
+                "hits":227317,
+                "comment_count":465,
+                "fav_count":3185
+            },
+            {
+                "rec_description":"一次上错车，江暖橙误惹了这个恶魔般的男人，从此纠葛缠绕 厉漠西，财阀掌权人，是只手遮天的商界撒旦，是无数女明星都想攀上的钻石新贵 可他却对她勾起狂魅的唇弧：跟我，我可以给你想要的一切 他阴冷看她游走在影帝与天才导演之间，霸道捏住她的下颌宣布：要传绯闻只能跟我传！ 他们的低调婚礼上，她的生母却带着大批记者来揭露她，当那些隐藏的被曝光 他阴鸷的对她说出一个字：滚 ",
+                "title":"恶魔总裁的克星",
+                "large_cover":"http://if.lsread.com/Upload/Novel/Image/20160804/20160804164050957691.jpg",
+                "tags":"霸道 总裁",
+                "bg":"../assets/img/book-bg2.jpg",
+                "hits":48580,
+                "comment_count":80,
+                "fav_count":1238
+            },
+            {
+                "rec_description":"“从今天起，你就是我冷某人的妻子，怎么？不想履行妻子的义务？”冷眸盯着面前缩在床边的新婚妻子。 “你不过是我花钱买来的”他是黑白两道闻风丧胆的枭雄，冷酷无情，人人口中的恶魔。 她是秦家的养女，为了一场债务，她成了真正秦家掌上明珠的替身。一场欢爱，一场缠绵，心渐渐沉沦，到底能不能守住这份用钱买来的婚姻.",
+                "title":"替身萌妻",
+                "large_cover":"http://if.lsread.com/Upload/Novel/Image/20160701/20160701104218944141.jpg",
+                "tags":"豪门 霸道 总裁",
+                "bg":"../assets/img/book-bg2.jpg",
+                "hits":270566,
+                "comment_count":236,
+                "fav_count":6846
+            },
+            {
+                "rec_description":"一次相亲，她遇到一个戴着面具的神秘男人，迷离的夜幕中，他把她变成了一道令人赏心悦目的“晚宴大餐”。 一个无奈的周末情人，一段缠绵的周末恋情。赌约背后，悱恻之时……逐渐沉沦。尘埃落定，她才发现，自己只是他换取自由的一颗棋。",
+                "title":"冷酷首席的周末情人",
+                "large_cover":"http://if.lsread.com/Upload/Novel/Image/20160415/20160415102522362951.jpg",
+                "tags":"豪门 恋爱",
+                "bg":"../assets/img/book-bg1.jpg",
+                "hits":22895,
+                "comment_count":13,
+                "fav_count":1068
+            },
+            {"rec_description":"沈凝萱这辈子最悲剧的事情，就是被自己的亲姐姐撬了墙角，眼睁睁看着她睡了自己深爱多年的男友。看着滚在床单上卖力奋战的他们，她脑子里出现了一个邪恶的念头：我死都要埋在你家祖坟里！ 当不了你老婆，我要当你的舅妈！楚皓轩，最年轻有为的男人，最高长官楚承弼唯一的孙子，受够了一个月相亲三十天的腻味日子，顺手抓着这个长相顺眼的女人，让她掏出了户口本和身份证。无爱的围城里，宠爱无度，却只有身体的缠绵，没有爱的交付。 可是为什么看到她身边围绕着其他男人的时候，一向冷静的老公大人，开始失了分寸？ ",
+              "title":"先婚后爱：霸道老公别来了 ",
+                "large_cover":"http://if.lsread.com/Upload/Novel/Image/20160602/20160602103818468921.jpg",
+                "tags":"腹黑 高干 婚姻",
+                "bg":"../assets/img/book-bg2.jpg",
+               "hits":72272,
+                "comment_count":51,
+                "fav_count":1486
+            },
+            {
+                "rec_description":"结婚前天，她亲眼目睹爱了九年的男友和他的大嫂滚在了一起，然而她却被男友的大哥……",
+                "title":"军婚",
+                "large_cover":"http://if.lsread.com/Upload/Novel/Image/20160510/20160510094711766191.jpg",
+                "tags":"闪婚 豪门 婚姻",
+                "bg":"../assets/img/book-bg1.jpg",
+                "hits":2676737,
+                "comment_count":3558,
+                "fav_count":53431
+            },
+            {"rec_description":"他说：“女人，记着谁是你的男人！”他时而冷漠，时而温柔，她以为高高在上的亿万总裁爱上了她这个小小女佣。她珠胎暗结之时，他却一声令下：孩子打掉！这个女人，让她给我消失……",
+                "title":"娇妻独宠：总裁的一夜欢愉",
+                "large_cover":"http://if.lsread.com/Upload/Novel/Image/20151130/20151130165007172921.jpg",
+                "tags":"豪门 溺爱",
+                "bg":"../assets/img/book-bg1.jpg",
+                "hits":135110,
+                "comment_count":156,
+                "fav_count":1954
+            }]
+
+
+
+
   },
-  onLoad: function( options ) {
+  onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-    that = this;
   },
-  onReady: function() {
+  onReady:function(){
     // 页面渲染完成
   },
-  onShow: function() {
+  onShow:function(){
     // 页面显示
   },
-  onHide: function() {
+  onHide:function(){
     // 页面隐藏
   },
-  onUnload: function() {
+  onUnload:function(){
     // 页面关闭
-  }, begin: function( event ) {
-    //开始的点击事件
-    that.setData( {
-      startDisplay: "none",
-      mainDisplay: "block",
-      endDisplay: "none"
-    });
-    set = setInterval( start, 20 );
-  }, mytouchmove: function( event ) {
-    //我方战机滑动事件
-    var top = event.touches[ 0 ].pageY - 30;
-    var left = event.touches[ 0 ].pageX - 30;
-    if( ( left < 260 && left > 0 ) && ( top < 470 && top > 0 ) ) {
-      that.setData( { top: top, left: left });
-    }
-  }, jisu: function( event ) {
-    //继续
-    that.setData( {
-      startDisplay: "block",
-      mainDisplay: "none",
-      endDisplay: "none",
-      myAirPath: "../assets/image/myAir.gif",
-      backgroundPositionY: 0,
-      top: 450,
-      left: 160,
-      myAirWidth: 60,
-      myAirHeight: 60,
-      bullets: [],
-      enemys: [],
-      scores: 0
-    });
-    mark = 0;
-    mark1 = 0;
+  },clickShowList:function(event){
+    console.log("======"+event.target.id);
+    wx.navigateTo({url:"../list/list?pageIndex="+event.target.id});
   }
-});
-
-/**
- * 开始游戏
- */
-function start() {
-  //页面背景滚动
-  that.data.backgroundPositionY += 0.5;
-  if( that.data.backgroundPositionY == 568 ) {
-    that.data.backgroundPositionY = 0;
-  }
-  that.setData( { backgroundPositionY: that.data.backgroundPositionY });
-  mark++;
-  //创建敌机
-  if( mark == 20 ) {
-    mark1++;
-    if( mark1 % 5 == 0 ) {
-      //中飞机
-      that.data.enemys.push( new enemy( 6, 25, 274, 46, 60, 5000, 360, random( 1, 3 ),
-        "../assets/image/aircraftExplosion.gif", "../assets/image/enemy3_fly_1.png" ) );
-    }
-    if( mark1 == 20 ) {
-      //大飞机
-      that.data.enemys.push( new enemy( 12, 57, 210, 110, 164, 30000, 540, 1,
-        "../assets/image/bigAircraftExplosion.gif", "../assets/image/enemy2_fly_1.png" ) );
-      mark1 = 0;
-    } else {
-      //小飞机
-      that.data.enemys.push( new enemy( 1, 19, 286, 34, 24, 1000, 360, random( 1, 4 ),
-        "../assets/image/smallAircraftExplosion.gif", "../assets/image/enemy1_fly_1.png" ) );
-    }
-    mark = 0;
-  }
-  that.setData( { enemys: that.data.enemys });
-  //移动敌机
-  var enemtslen = that.data.enemys.length;
-  for( var i = 0;i < enemtslen;i++ ) {
-    var myEnemy = that.data.enemys[ i ];
-    //planisdie == true|false 飞机死亡|飞机未死亡  
-    if( myEnemy.planisdie != true ) {
-      var scores = that.data.scores;
-      if( scores <= 50000 ) {
-        myEnemy.planY += myEnemy.plansudu;
-      } else if( scores > 50000 && scores <= 100000 ) {
-        myEnemy.planY += myEnemy.plansudu + 1;
-      } else if( scores > 100000 && scores <= 150000 ) {
-        myEnemy.planY += myEnemy.plansudu + 2;
-      } else if( scores > 150000 && scores <= 200000 ) {
-        myEnemy.planY += myEnemy.plansudu + 3;
-      } else if( scores > 200000 && scores <= 250000 ) {
-        myEnemy.planY += myEnemy.plansudu + 4;
-      } else {
-        myEnemy.planY += myEnemy.plansudu + 5;
-      }
-      that.setData( { enemys: that.data.enemys });
-    }
-    //如果敌机超出边界，删除敌机
-    if( myEnemy.planY > 500 ) {
-      removeEnemy( i );
-      enemtslen--;
-    }
-    //当敌机死亡标志变成true的时候代表敌机已经死亡，过一段时间删除敌机
-    if( myEnemy.planisdie == true ) {
-      myEnemy.plandietimes += 20;
-      if( myEnemy.plandietimes == myEnemy.plandietime ) {
-        removeEnemy( i );
-    	   enemtslen--;
-      }
-    }
-  }
-
-  //创建子弹
-  if( mark % 5 == 0 ) {
-    that.data.bullets.push( new oddbullet( that.data.left + 26, that.data.top - 10 ) );
-  }
-  //移动子弹
-  var bulletslen = that.data.bullets.length;
-  for( var i = 0;i < bulletslen;i++ ) {
-    that.data.bullets[ i ].bulletY -= 20;
-    that.setData( { bullets: that.data.bullets });
-    //如果子弹超出边界，删除子弹
-    if( that.data.bullets[ i ].bulletY < 0 ) {
-      removeBullet( i );
-      bulletslen--;
-    }
-  }
-  for( var k = 0;k < bulletslen;k++ ) {
-    for( var j = 0;j < enemtslen;j++ ) {
-      //判断碰撞本方飞机
-      var myEnemy = that.data.enemys[ j ];
-      if( myEnemy.planisdie == false ) {
-        if( ( myEnemy.planX + myEnemy.plansizeX >= that.data.left && myEnemy.planX <= that.data.left + that.data.myAirWidth ) &&
-          ( myEnemy.planY + myEnemy.plansizeY >= that.data.top + 40 && myEnemy.planY <= that.data.top - 20 + that.data.myAirHeight ) ) {
-          //飞机碰撞
-          that.setData( { myAirPath: "../assets/image/MyAirBlast.gif", endDisplay: "block" });
-          clearInterval( set );
-        }
-        var myBullet = that.data.bullets[ k ];
-        if( myBullet != null ) {
-          //判断子弹与敌机的碰撞
-          if( ( myBullet.bulletX + myBullet.bulletsizeX > myEnemy.planX && myBullet.bulletX < myEnemy.planX + myEnemy.plansizeX ) &&
-            ( myBullet.bulletY <= myEnemy.planY + myEnemy.plansizeY && myBullet.bulletY + myBullet.bulletsizeY >= myEnemy.planY ) ) {
-            console.log( "=======打到飞机=======" );
-            myEnemy.planhp -= myBullet.bulletattach;
-            if( myEnemy.planhp == 0 ) {
-              var scorse = that.data.scores;
-              scores += myEnemy.planscore;
-              that.setData( { scores: scores });
-              myEnemy.planimagesrc = myEnemy.planboomimage;
-              myEnemy.planisdie = true;
-            }
-            //删除子弹
-            removeBullet( k );
-            bulletslen--;
-          }
-
-        }
-
-      }
-    }
-  }
-}
-
-/**
- * 删除子弹
- */
-function removeBullet( index ) {
-  var arr = that.data.bullets;
-  arr.splice( index, 1 );
-  that.setData( { bullets: arr });
-}
-
-/**
- * 删除敌机
- */
-function removeEnemy( index ) {
-  var arr = that.data.enemys;
-  arr.splice( index, 1 );
-  that.setData( { enemys: arr });
-}
-
-
-/**
- * 创建单行子弹类
- */
-function oddbullet( X, Y ) {
-  bullet.call( this, X, Y, 6, 14, "../assets/image/bullet1.png" );
-}
-
-/**
- * 创建子弹类
- */
-function bullet( X, Y, sizeX, sizeY, imagesrc ) {
-  this.bulletX = X;
-  this.bulletY = Y;
-  this.bulletattach = 1;
-  this.bulletsizeX = sizeX;
-  this.bulletsizeY = sizeY;
-  this.imagesrc = imagesrc;
-}
-
-/**
- * 创建飞机类
- */
-function plan( hp, X, Y, sizeX, sizeY, score, dietime, sudu, boomimage, imagesrc ) {
-  this.planX = X;
-  this.planY = Y;
-  this.planhp = hp;
-  this.planscore = score;
-  this.plansizeX = sizeX;
-  this.plansizeY = sizeY;
-  this.planboomimage = boomimage;
-  this.planisdie = false;
-  this.plandirtimes = 0;
-  this.plandietime = dietime;
-  this.plansudu = sudu;
-  this.planimagesrc = imagesrc;
-}
-
-/**
- * 创建敌机类
- */
-function enemy( hp, a, b, sizeX, sizeY, score, dietime, sudu, boomimage, imagesrc ) {
-  plan.call( this, hp, random( a, b ), -10, sizeX, sizeY, score, dietime, sudu, boomimage, imagesrc );
-}
-
-/**
- * 产生min max之间的随机数
- */
-function random( min, max ) {
-  return Math.floor( min + Math.random() * ( max - min ) );
-}
-
-
-
-
-
+})
